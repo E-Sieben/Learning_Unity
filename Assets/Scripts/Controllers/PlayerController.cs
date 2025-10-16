@@ -8,6 +8,7 @@ namespace Player
     /// </summary>
     public class PlayerController : MonoBehaviour
     {
+        // Movement
         /// <summary>Defines the Movement Speed of the Player as a Floating Point Number</summary>
         [field: SerializeField]
         private float movementSpeed { get; set; } = 0.2f;
@@ -16,20 +17,23 @@ namespace Player
         [field: SerializeField]
         private float rotationSpeed { get; set; } = 0.2f;
 
-        /// <summary>Defines the Input that the User has to take for horizontal movement using Unity's Input System</summary>
-        private InputAction _movementInput;
+        // Animation
+        /// <summary>Defines the Service to Control Animations</summary>
+        private AnimationService _animationService;
 
         /// <summary>Defines the Service to Control the Player itself</summary>
-        private PlayerService _playerService;
+        private MovementService _movementService;
 
         /// <summary>
         ///     Inits the user inputs and the Player Service
         /// </summary>
         private void Awake()
         {
-            _movementInput = InputSystem.actions.FindAction("move");
-            _playerService = gameObject.AddComponent<PlayerService>();
-            _playerService.Initialize(_movementInput);
+            // Movement
+            _movementService =
+                new MovementService(InputSystem.actions.FindAction("move"), transform);
+            // Animation
+            _animationService = new AnimationService(GetComponentInChildren<Animator>());
         }
 
         /// <summary>
@@ -37,7 +41,10 @@ namespace Player
         /// </summary>
         private void FixedUpdate()
         {
-            _playerService.Move(movementSpeed, rotationSpeed);
+            if (_movementService.Move(movementSpeed, rotationSpeed))
+                _animationService.Walk();
+            else
+                _animationService.Idle();
         }
     }
 }
