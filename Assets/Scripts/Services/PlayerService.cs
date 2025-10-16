@@ -12,7 +12,7 @@ namespace Player
         private InputAction _movementInput;
 
         /// <summary>
-        /// Used to initialize the PlayerService by giving it all needed <c>InputActions</c>
+        ///     Used to initialize the PlayerService by giving it all needed <c>InputActions</c>
         /// </summary>
         /// <param name="movement">Defines the <c>InputAction</c> for horizontal movement</param>
         public void Initialize(InputAction movement)
@@ -21,14 +21,17 @@ namespace Player
         }
 
         /// <summary>
-        /// Moves horizontally using the pre-defined <c>Input Action</c>
+        ///     Moves horizontally using the pre-defined <c>Input Action</c>
         /// </summary>
         /// <param name="movementSpeed">The Movement Speed of the player</param>
-        public void Move(float movementSpeed)
+        /// <param name="rotationSpeed"> The Rotation Speed of the player</param>
+        public void Move(float movementSpeed, float rotationSpeed)
         {
             if (!_movementInput.IsPressed()) return;
             var movementDirection = _movementInput.ReadValue<Vector2>().normalized;
-            transform.position += new Vector3(movementDirection.x, 0f, movementDirection.y) * movementSpeed;
+            var movementDirection3D = new Vector3(movementDirection.x, 0f, movementDirection.y);
+            transform.position += movementDirection3D * movementSpeed;
+            transform.forward = Vector3.Slerp(transform.forward, movementDirection3D, rotationSpeed);
         }
     }
 }
