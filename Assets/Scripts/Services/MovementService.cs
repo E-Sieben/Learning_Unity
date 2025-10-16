@@ -34,7 +34,7 @@ namespace Player
         public bool Move(float movementSpeed, float rotationSpeed)
         {
             if (!_movementInput.IsPressed()) return false;
-            var movementDirection = _movementInput.ReadValue<Vector2>().normalized;
+            var movementDirection = _movementInput.ReadValue<Vector2>();
             var movementDirection3D = new Vector3(movementDirection.x, 0f, movementDirection.y);
             _playerTransform.position += movementDirection3D * movementSpeed;
             _playerTransform.forward = Vector3.Slerp(_playerTransform.forward, movementDirection3D, rotationSpeed);
