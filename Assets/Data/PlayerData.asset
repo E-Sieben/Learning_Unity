@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e316a612e2c4809a0e7a2d1c4476b84, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
+  selectedItem: 0
+  isReleased: 0
   stats:
     movementSpeed: 0.2
     rotationSpeed: 0.2
     magnetStrength: 0.5
-    pickupRange: 2
+    pickupRange: 1
   items:
-    scraps: 0
+    scraps: 5
     teleporters: 0

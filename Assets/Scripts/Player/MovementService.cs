@@ -15,11 +15,11 @@ namespace Player
 
         private readonly float _playerRadius;
 
-        /// <summary>Defines the Players Transform to use for Movement</summary>
-        private readonly Transform _playerTransform;
-
         /// <summary>Defines the Players Stats</summary>
         private readonly Stats _playerStats;
+
+        /// <summary>Defines the Players Transform to use for Movement</summary>
+        private readonly Transform _playerTransform;
 
         /// <summary>
         ///     Used to initialize the MovementService by giving it all needed <c>InputActions</c>
@@ -29,7 +29,8 @@ namespace Player
         /// <param name="playerRadius">Defines the Radius of the Player used in the <c>Capsule Cast</c></param>
         /// <param name="playerHeight">Defines the Height of the Player used in the <c>Capsule Cast</c></param>
         /// <param name="playerStats">Defines the General PlayerStats</param>
-        public MovementService(InputAction movement, Transform playerTransform, float playerRadius, float playerHeight, Stats playerStats)
+        public MovementService(InputAction movement, Transform playerTransform, float playerRadius, float playerHeight,
+            Stats playerStats)
         {
             _playerTransform = playerTransform;
             _movementInput = movement;
@@ -56,7 +57,8 @@ namespace Player
                     _playerStats.movementSpeed)
                ) return false;
             _playerTransform.position += movementDirection3D * _playerStats.movementSpeed;
-            _playerTransform.forward = Vector3.Slerp(_playerTransform.forward, movementDirection3D, _playerStats.rotationSpeed);
+            _playerTransform.forward =
+                Vector3.Slerp(_playerTransform.forward, movementDirection3D, _playerStats.rotationSpeed);
             return true;
         }
     }

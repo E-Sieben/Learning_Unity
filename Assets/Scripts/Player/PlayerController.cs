@@ -9,6 +9,7 @@ namespace Player
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private PlayerData playerData;
+
         // Animation
         /// <summary>Defines the Service to Control Animations</summary>
         private AnimationService _animationService;
@@ -29,7 +30,7 @@ namespace Player
                     GetComponent<CapsuleCollider>().radius,
                     GetComponent<CapsuleCollider>().height,
                     playerData.stats
-                    );
+                );
             // Animation
             _animationService = new AnimationService(GetComponentInChildren<Animator>());
         }

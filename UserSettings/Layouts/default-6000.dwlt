@@ -509,7 +509,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 06d20000
     m_LastClickedID: 53766
-    m_ExpandedIDs: 000000004cb300004eb3000050b3000052b3000054b30000
+    m_ExpandedIDs: 000000000eb5000010b5000012b5000014b5000016b50000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -538,7 +538,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000004cb300004eb3000050b3000052b3000054b30000
+    m_ExpandedIDs: 000000000eb5000010b5000012b5000014b5000016b50000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1122,9 +1122,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 6.317977, y: 5.999065, z: -6.049301}
+    m_Target: {x: -4.1100445, y: 4.5936255, z: -7.162913}
     speed: 2
-    m_Value: {x: 6.317977, y: 5.999065, z: -6.049301}
+    m_Value: {x: 0, y: 1, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1170,13 +1170,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.3071288, y: 0.2639468, z: -0.08908573, w: -0.9099989}
+    m_Target: {x: -0.3172491, y: -0.14825492, z: 0.050283447, w: -0.93534887}
     speed: 2
     m_Value: {x: -0.3071288, y: 0.2639468, z: -0.089085735, w: -0.9099989}
   m_Size:
-    m_Target: 14.662991
+    m_Target: 11.611008
     speed: 2
-    m_Value: 14.662991
+    m_Value: 1.9339913
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1289,9 +1289,9 @@ MonoBehaviour:
       x: 0
       y: 21
       width: 884
-      height: 719
+      height: 658
     m_Scale: {x: 0.48103634, y: 0.48103634}
-    m_Translation: {x: 441.80545, y: 359.5}
+    m_Translation: {x: 441.80545, y: 329}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
@@ -1299,12 +1299,12 @@ MonoBehaviour:
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
       x: -918.44507
-      y: -747.3448
+      y: -683.94
       width: 1837.699
-      height: 1494.6896
+      height: 1367.88
     m_MinimalGUI: 1
   m_defaultScale: 0.46041667
-  m_LastWindowPixelSize: {x: 884, y: 740}
+  m_LastWindowPixelSize: {x: 884, y: 679}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000

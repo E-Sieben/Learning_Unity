@@ -1,5 +1,4 @@
 using System;
-using Player;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -14,10 +13,8 @@ namespace Scrap
         /// <summary>Stores the Targeted Player for position and Magnet Strength</summary>
         [SerializeField] private GameObject targetPlayer;
 
+        /// <summary>Stores the Data of the Player for Phase Management and Behaviour</summary>
         [SerializeField] private PlayerData playerData;
-        
-        /// <summary>Stores the Player Controller in order to get the Magnet Strength</summary>
-        private PlayerController _playerController;
 
         /// <summary>Stores the Rigidbody of the Scrap for movement</summary>
         private Rigidbody _rigidbody;
@@ -29,7 +26,6 @@ namespace Scrap
         {
             if (targetPlayer.IsUnityNull()) throw new Exception("Scrap requires a Target Player");
             _rigidbody = GetComponent<Rigidbody>();
-            _playerController = targetPlayer.GetComponent<PlayerController>();
         }
 
         /// <summary>
@@ -37,6 +33,8 @@ namespace Scrap
         /// </summary>
         private void FixedUpdate()
         {
+            if (!playerData.isReleased) return;
+            _rigidbody.useGravity = true;
             var targetPosition = targetPlayer.transform.position;
             var currentPosition = transform.position;
             // Move Scrap
