@@ -22,7 +22,9 @@ namespace Scrap
         )
         {
             var addVelocityTo = targetLocation - sourceLocation;
+            addVelocityTo.y *= targetLocation.y * 10;
             controllableRigidbody.linearVelocity += addVelocityTo * magnetStrength;
+            Debug.Log(addVelocityTo);
         }
     }
 }

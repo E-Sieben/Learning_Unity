@@ -35,12 +35,17 @@ namespace Scrap
         /// </summary>
         private void FixedUpdate()
         {
+            var targetPosition = targetPlayer.transform.position;
+            var currentPosition = transform.position;
             MovementService.TargetLocation(
                 _rigidbody,
-                transform.position,
-                targetPlayer.transform.position,
+                currentPosition,
+                targetPosition,
                 _playerController.magnetStrengthPub
             );
+            if (!((currentPosition - targetPosition).magnitude < _playerController.pickupRangePub)) return;
+            Debug.Log("You scored!");
+            Destroy(gameObject);
         }
     }
 }

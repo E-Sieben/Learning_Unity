@@ -20,6 +20,9 @@ namespace Player
         /// <summary>Defines the Strength of the Players Magnet</summary>
         [SerializeField] private float magnetStrength = 0.5f;
 
+        /// <summary>Defines the Pickup Range of the Players Magnet</summary>
+        [SerializeField] private float pickupRange = 2f;
+
         // Animation
         /// <summary>Defines the Service to Control Animations</summary>
         private AnimationService _animationService;
@@ -27,8 +30,12 @@ namespace Player
         /// <summary>Defines the Service to Control the Player itself</summary>
         private MovementService _movementService;
 
+        // Public Access to Variables
         /// <summary>Public accessor for the <c>magnetStrength</c></summary>
         public float magnetStrengthPub => magnetStrength;
+
+        /// <summary>Public accessor for the <c>pickupRange</c></summary>
+        public float pickupRangePub => pickupRange;
 
         /// <summary>
         ///     Inits the user inputs and the Player Service
@@ -37,7 +44,12 @@ namespace Player
         {
             // Movement
             _movementService =
-                new MovementService(InputSystem.actions.FindAction("move"), transform);
+                new MovementService(
+                    InputSystem.actions.FindAction("move"),
+                    transform,
+                    GetComponent<CapsuleCollider>().radius,
+                    GetComponent<CapsuleCollider>().height
+                );
             // Animation
             _animationService = new AnimationService(GetComponentInChildren<Animator>());
         }
