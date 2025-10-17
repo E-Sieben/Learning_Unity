@@ -18,14 +18,14 @@ namespace ItemManagement
         /// <summary>Holds the Button State for <c>placementCooldown</c></summary>
         private bool _isButtonActive;
 
-        /// <summary>Holds the Button Input Action for Item Placement</summary>
-        private InputAction _spawnAction;
-
         /// <summary>Hold the Button Input Action for Scrap release</summary>
         private InputAction _releaseAction;
 
+        /// <summary>Holds the Button Input Action for Item Placement</summary>
+        private InputAction _spawnAction;
+
         /// <summary>
-        /// Inits the <c>_spawnAction</c> and the <c>_releaseAction</c> to the interact Action
+        ///     Inits the <c>_spawnAction</c> and the <c>_releaseAction</c> to the interact Action
         /// </summary>
         private void Awake()
         {
@@ -34,7 +34,7 @@ namespace ItemManagement
         }
 
         /// <summary>
-        /// Checks for Button press on fixed interval in order to place an Item
+        ///     Checks for Button press on fixed interval in order to place an Item
         /// </summary>
         private void FixedUpdate()
         {

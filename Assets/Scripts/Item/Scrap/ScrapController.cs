@@ -11,8 +11,6 @@ namespace Scrap
     [RequireComponent(typeof(Rigidbody))]
     public class ScrapController : MonoBehaviour
     {
-        /// <summary>Defines the minimum Speed needed to kill a enemy</summary>
-        [SerializeField] private float minKillSpeed = 3f;
         /// <summary>Stores the Targeted Player for position and Magnet Strength</summary>
         [SerializeField] private GameObject targetPlayer;
 
@@ -55,9 +53,10 @@ namespace Scrap
 
         private void OnCollisionEnter(Collision other)
         {
-            if (_rigidbody.linearVelocity.magnitude < minKillSpeed) return;
             if (!other.gameObject.CompareTag("Enemy")) return;
-            playerData.items.scraps += other.gameObject.GetComponent<EnemyController>().reward;
+            var enemyController = other.gameObject.GetComponent<EnemyController>();
+            if (_rigidbody.linearVelocity.magnitude < enemyController.minKillSpeed) return;
+            playerData.items.scraps += enemyController.reward;
             Destroy(other.gameObject);
         }
     }
