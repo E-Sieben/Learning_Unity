@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
   selectedItem: 0
-  isReleased: 0
+  isReleased: 1
   stats:
     movementSpeed: 0.2
     rotationSpeed: 0.2
@@ -21,5 +21,5 @@ MonoBehaviour:
     pickupRange: 1
     placementCooldown: 2
   items:
-    scraps: 3
+    scraps: 98
     teleporters: 0

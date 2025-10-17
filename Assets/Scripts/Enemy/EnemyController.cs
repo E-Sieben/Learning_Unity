@@ -7,6 +7,7 @@ namespace Enemy
     public class EnemyController : MonoBehaviour
     {
         [SerializeField] private Transform playerTransform;
+        public int reward = 1;
         private MovementService _movementService;
 
         private void Start()

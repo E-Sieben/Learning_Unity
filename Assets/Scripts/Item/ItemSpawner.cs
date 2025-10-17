@@ -21,12 +21,16 @@ namespace ItemManagement
         /// <summary>Holds the Button Input Action for Item Placement</summary>
         private InputAction _spawnAction;
 
+        /// <summary>Hold the Button Input Action for Scrap release</summary>
+        private InputAction _releaseAction;
+
         /// <summary>
-        /// Inits the <c>_spawnAction</c> to the interact Action
+        /// Inits the <c>_spawnAction</c> and the <c>_releaseAction</c> to the interact Action
         /// </summary>
         private void Awake()
         {
             _spawnAction = InputSystem.actions.FindAction("interact");
+            _releaseAction = InputSystem.actions.FindAction("release");
         }
 
         /// <summary>
@@ -34,8 +38,12 @@ namespace ItemManagement
         /// </summary>
         private void FixedUpdate()
         {
-            if (!_spawnAction.IsPressed() || _isButtonActive) return;
+            if (_spawnAction.IsPressed() && !_isButtonActive) Place();
+            if (_releaseAction.IsPressed()) playerData.isReleased = true;
+        }
 
+        private void Place()
+        {
             GameObject usageTemplate;
             switch (playerData.selectedItem)
             {

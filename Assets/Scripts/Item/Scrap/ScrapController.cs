@@ -1,4 +1,5 @@
 using System;
+using Enemy;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,6 +11,8 @@ namespace Scrap
     [RequireComponent(typeof(Rigidbody))]
     public class ScrapController : MonoBehaviour
     {
+        /// <summary>Defines the minimum Speed needed to kill a enemy</summary>
+        [SerializeField] private float minKillSpeed = 3f;
         /// <summary>Stores the Targeted Player for position and Magnet Strength</summary>
         [SerializeField] private GameObject targetPlayer;
 
@@ -44,10 +47,18 @@ namespace Scrap
                 targetPosition,
                 playerData.stats.magnetStrength
             );
-
             // Kill Object when in Range
             if (!((currentPosition - targetPosition).magnitude < playerData.stats.pickupRange)) return;
+            playerData.items.scraps += 1;
             Destroy(gameObject);
+        }
+
+        private void OnCollisionEnter(Collision other)
+        {
+            if (_rigidbody.linearVelocity.magnitude < minKillSpeed) return;
+            if (!other.gameObject.CompareTag("Enemy")) return;
+            playerData.items.scraps += other.gameObject.GetComponent<EnemyController>().reward;
+            Destroy(other.gameObject);
         }
     }
 }
