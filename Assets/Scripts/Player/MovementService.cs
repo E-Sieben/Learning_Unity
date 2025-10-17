@@ -44,7 +44,7 @@ namespace Player
             var movementDirection = _movementInput.ReadValue<Vector2>();
             var movementDirection3D = new Vector3(movementDirection.x, 0f, movementDirection.y);
             if (Physics.CapsuleCast( // Checks whether Character is stuck in Wall
-                    _playerTransform.position + new Vector3(0,1,0),
+                    _playerTransform.position + new Vector3(0, 1, 0),
                     _playerTransform.position + Vector3.up * _playerHeight,
                     _playerRadius / 2,
                     movementDirection3D,

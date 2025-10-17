@@ -14,7 +14,7 @@ namespace Scrap
         /// <param name="sourceLocation">The Vec3 of the current Location</param>
         /// <param name="targetLocation">The Vec3 of the target Location</param>
         /// <param name="magnetStrength">The MagnetStrength, also usable as Movement Speed</param>
-        public static void TargetLocation(
+        public static void TargetALocation(
             Rigidbody controllableRigidbody,
             Vector3 sourceLocation,
             Vector3 targetLocation,
@@ -22,9 +22,9 @@ namespace Scrap
         )
         {
             var addVelocityTo = targetLocation - sourceLocation;
-            addVelocityTo.y *= targetLocation.y * 10;
             controllableRigidbody.linearVelocity += addVelocityTo * magnetStrength;
-            Debug.Log(addVelocityTo);
+            if (targetLocation.y > controllableRigidbody.position.y)
+                controllableRigidbody.linearVelocity += new Vector3(0, magnetStrength, 0);
         }
     }
 }

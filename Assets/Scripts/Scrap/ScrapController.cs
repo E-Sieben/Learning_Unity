@@ -37,12 +37,15 @@ namespace Scrap
         {
             var targetPosition = targetPlayer.transform.position;
             var currentPosition = transform.position;
-            MovementService.TargetLocation(
+            // Move Scrap
+            MovementService.TargetALocation(
                 _rigidbody,
                 currentPosition,
                 targetPosition,
                 _playerController.magnetStrengthPub
             );
+
+            // Kill Object when in Range
             if (!((currentPosition - targetPosition).magnitude < _playerController.pickupRangePub)) return;
             Debug.Log("You scored!");
             Destroy(gameObject);

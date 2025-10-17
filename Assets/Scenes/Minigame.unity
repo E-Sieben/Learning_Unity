@@ -541,8 +541,8 @@ Rigidbody:
   m_GameObject: {fileID: 480974047}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDamping: 20
+  m_AngularDamping: 0.2
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -2327,7 +2327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   <movementSpeed>k__BackingField: 0.2
   <rotationSpeed>k__BackingField: 0.2
-  magnetStrength: 0.05
+  magnetStrength: 1
   pickupRange: 2
 --- !u!4 &1939478795
 Transform:
