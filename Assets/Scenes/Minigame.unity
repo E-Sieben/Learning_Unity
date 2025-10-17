@@ -2328,6 +2328,7 @@ MonoBehaviour:
   <movementSpeed>k__BackingField: 0.2
   <rotationSpeed>k__BackingField: 0.2
   magnetStrength: 0.05
+  pickupRange: 2
 --- !u!4 &1939478795
 Transform:
   m_ObjectHideFlags: 0
