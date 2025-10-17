@@ -47,7 +47,6 @@ namespace Scrap
 
             // Kill Object when in Range
             if (!((currentPosition - targetPosition).magnitude < _playerController.pickupRangePub)) return;
-            Debug.Log("You scored!");
             Destroy(gameObject);
         }
     }
