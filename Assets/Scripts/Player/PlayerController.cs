@@ -17,12 +17,18 @@ namespace Player
         [field: SerializeField]
         private float rotationSpeed { get; set; } = 0.2f;
 
+        /// <summary>Defines the Strength of the Players Magnet</summary>
+        [SerializeField] private float magnetStrength = 0.5f;
+
         // Animation
         /// <summary>Defines the Service to Control Animations</summary>
         private AnimationService _animationService;
 
         /// <summary>Defines the Service to Control the Player itself</summary>
         private MovementService _movementService;
+
+        /// <summary>Public accessor for the <c>magnetStrength</c></summary>
+        public float magnetStrengthPub => magnetStrength;
 
         /// <summary>
         ///     Inits the user inputs and the Player Service
