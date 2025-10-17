@@ -14,6 +14,8 @@ namespace Scrap
         /// <summary>Stores the Targeted Player for position and Magnet Strength</summary>
         [SerializeField] private GameObject targetPlayer;
 
+        [SerializeField] private PlayerData playerData;
+        
         /// <summary>Stores the Player Controller in order to get the Magnet Strength</summary>
         private PlayerController _playerController;
 
@@ -42,11 +44,11 @@ namespace Scrap
                 _rigidbody,
                 currentPosition,
                 targetPosition,
-                _playerController.magnetStrengthPub
+                playerData.stats.magnetStrength
             );
-            
+
             // Kill Object when in Range
-            if (!((currentPosition - targetPosition).magnitude < _playerController.pickupRangePub)) return;
+            if (!((currentPosition - targetPosition).magnitude < playerData.stats.pickupRange)) return;
             Destroy(gameObject);
         }
     }

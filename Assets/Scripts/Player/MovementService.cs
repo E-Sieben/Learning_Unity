@@ -18,19 +18,24 @@ namespace Player
         /// <summary>Defines the Players Transform to use for Movement</summary>
         private readonly Transform _playerTransform;
 
+        /// <summary>Defines the Players Stats</summary>
+        private readonly Stats _playerStats;
+
         /// <summary>
         ///     Used to initialize the MovementService by giving it all needed <c>InputActions</c>
         /// </summary>
         /// <param name="movement">Defines the <c>InputAction</c> for horizontal movement</param>
         /// <param name="playerTransform">Defines the transform of the player used for movement</param>
-        /// <param name="playerRadius"></param>
-        /// <param name="playerHeight"></param>
-        public MovementService(InputAction movement, Transform playerTransform, float playerRadius, float playerHeight)
+        /// <param name="playerRadius">Defines the Radius of the Player used in the <c>Capsule Cast</c></param>
+        /// <param name="playerHeight">Defines the Height of the Player used in the <c>Capsule Cast</c></param>
+        /// <param name="playerStats">Defines the General PlayerStats</param>
+        public MovementService(InputAction movement, Transform playerTransform, float playerRadius, float playerHeight, Stats playerStats)
         {
             _playerTransform = playerTransform;
             _movementInput = movement;
             _playerRadius = playerRadius;
             _playerHeight = playerHeight;
+            _playerStats = playerStats;
         }
 
         /// <summary>
@@ -38,7 +43,7 @@ namespace Player
         /// </summary>
         /// <param name="movementSpeed">Maximum Movement Speed of the player</param>
         /// <param name="rotationSpeed">Maximum Rotation Speed of the player</param>
-        public bool Move(float movementSpeed, float rotationSpeed)
+        public bool Move()
         {
             if (!_movementInput.IsPressed()) return false;
             var movementDirection = _movementInput.ReadValue<Vector2>();
@@ -48,10 +53,10 @@ namespace Player
                     _playerTransform.position + Vector3.up * _playerHeight,
                     _playerRadius / 2,
                     movementDirection3D,
-                    movementSpeed)
+                    _playerStats.movementSpeed)
                ) return false;
-            _playerTransform.position += movementDirection3D * movementSpeed;
-            _playerTransform.forward = Vector3.Slerp(_playerTransform.forward, movementDirection3D, rotationSpeed);
+            _playerTransform.position += movementDirection3D * _playerStats.movementSpeed;
+            _playerTransform.forward = Vector3.Slerp(_playerTransform.forward, movementDirection3D, _playerStats.rotationSpeed);
             return true;
         }
     }
