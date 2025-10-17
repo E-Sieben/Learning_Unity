@@ -19,6 +19,7 @@ MonoBehaviour:
     rotationSpeed: 0.2
     magnetStrength: 0.5
     pickupRange: 1
+    placementCooldown: 2
   items:
-    scraps: 5
+    scraps: 3
     teleporters: 0

@@ -13,7 +13,7 @@ namespace ItemManagement
         [SerializeField] private GameObject templateScrap;
 
         /// <summary>Holds the Player for Location when spawning</summary>
-        [SerializeField] private GameObject player;
+        [SerializeField] private Transform playerTransform;
 
         /// <summary>Holds the Button State for <c>placementCooldown</c></summary>
         private bool _isButtonActive;
@@ -53,7 +53,7 @@ namespace ItemManagement
                     return;
             }
 
-            var targetSpawn = player.transform.position;
+            var targetSpawn = playerTransform.position;
             Instantiate(usageTemplate, targetSpawn + new Vector3(0, 1, 0), Quaternion.identity)
                 .GetComponent<ScrapController>()
                 .enabled = true;
