@@ -1,0 +1,13 @@
+Assets/_Recovery/
+Assets/StoreAssets/
+Packages/
+Unity.*
+.plastic/
+Library/
+Logs/
+obj/
+Temp/
+Assembly*
+*.sln*
+*.csproj
+*.meta

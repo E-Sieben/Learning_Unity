@@ -44,7 +44,7 @@ namespace Scrap
                 targetPosition,
                 _playerController.magnetStrengthPub
             );
-
+            
             // Kill Object when in Range
             if (!((currentPosition - targetPosition).magnitude < _playerController.pickupRangePub)) return;
             Destroy(gameObject);
