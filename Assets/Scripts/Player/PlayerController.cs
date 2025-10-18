@@ -22,6 +22,7 @@ namespace Player
         /// </summary>
         private void Awake()
         {
+            playerData.isReleased = false;
             // Movement
             _movementService =
                 new MovementService(
