@@ -21,6 +21,7 @@ namespace Scrap
             float magnetStrength
         )
         {
+            // TODO: Stops sometimes?
             var addVelocityTo = targetLocation - sourceLocation;
             controllableRigidbody.linearVelocity += addVelocityTo * magnetStrength;
             if (targetLocation.y > controllableRigidbody.position.y)

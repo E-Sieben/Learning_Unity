@@ -39,7 +39,9 @@ namespace ItemManagement
         private void FixedUpdate()
         {
             if (_spawnAction.IsPressed() && !_isButtonActive) Place();
-            if (_releaseAction.IsPressed()) playerData.isReleased = true;
+            if (!_releaseAction.IsPressed() || _isButtonActive) return;
+            playerData.isReleased = !playerData.isReleased;
+            Invoke(nameof(FreeButton), playerData.stats.placementCooldown);
         }
 
         private void Place()

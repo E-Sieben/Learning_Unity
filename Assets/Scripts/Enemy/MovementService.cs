@@ -16,5 +16,10 @@ namespace Enemy
         {
             _agent.destination = goal;
         }
+
+        public void Stop(Vector3 currentPosition)
+        {
+            _agent.destination = currentPosition;
+        }
     }
 }

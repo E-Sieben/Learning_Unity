@@ -26,6 +26,7 @@ namespace Enemy
             if (distance.magnitude > noticeDistance)
             {
                 screenLight.color = Color.green;
+                _movementService.Stop(transform.position);
                 return;
             }
 
